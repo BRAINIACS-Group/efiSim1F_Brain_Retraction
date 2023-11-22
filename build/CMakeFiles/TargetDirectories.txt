@@ -1,0 +1,8 @@
+/calculate/efiSim1F/src/build/CMakeFiles/rebuild_cache.dir
+/calculate/efiSim1F/src/build/CMakeFiles/edit_cache.dir
+/calculate/efiSim1F/src/build/CMakeFiles/efi_vlab.dir
+/calculate/efiSim1F/src/build/CMakeFiles/release.dir
+/calculate/efiSim1F/src/build/CMakeFiles/debug.dir
+/calculate/efiSim1F/src/build/efi/CMakeFiles/rebuild_cache.dir
+/calculate/efiSim1F/src/build/efi/CMakeFiles/edit_cache.dir
+/calculate/efiSim1F/src/build/efi/CMakeFiles/efi.dir
