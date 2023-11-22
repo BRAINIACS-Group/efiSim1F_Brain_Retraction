@@ -1,0 +1,182 @@
+subsection experiment
+  set reset = true
+
+  subsection testing_device@[type=retraction_spatulars,instance=1]
+    set input files = Input_files/retraction_spatula_150_12
+    set directionA = 0.0,0.0,1.0
+    set directionB = 0.0,0.0,-1.0 
+  end
+
+  subsection sample
+
+    subsection finite element
+      set polynomial degree = 1
+    end
+
+    subsection geometry@[type=import]
+      set inpFile = Brain_incision_L12mm_W4mm_30mm_Loc1_4R.inp
+      set minimums = 30, -4, -0.3
+      set maximums = 36, 4, 0.3
+    end  
+  
+        # Internal Structures 
+    subsection constitutive@[type=maxwell_wiechert,instance=1,material_id=4]
+    
+        subsection constitutive@[type=maxwell_element,instance=1]
+            set deviatoric viscosity = 2.27e-3 # default: 0
+            subsection constitutive@[type=modified_one_term_ogden,instance=1]
+              set alpha                 = -15.5 # default: -20
+              set poisson ratio         = 0.49
+              set empirical coefficient = -2.
+              set mu                    = 680e-6  # default: 0.7e3
+            end
+        end
+        
+        subsection constitutive@[type=maxwell_element,instance=2]
+            set deviatoric viscosity = 240.17e-3 # default: 0
+            subsection constitutive@[type=modified_one_term_ogden,instance=1]
+              set alpha                 = -22.76 # default: -20
+              set poisson ratio         = 0.49
+              set empirical coefficient = -2.
+              set mu                    = 270e-6  # default: 0.7e3
+            end
+        end
+
+        subsection constitutive@[type=modified_one_term_ogden,instance=1]
+            set alpha = -21.52
+            set poisson ratio = 0.49
+            set empirical coefficient = -2.
+            set mu = 170e-6
+        end
+    end  
+     
+  
+    # Cortex (C)  
+    subsection constitutive@[type=maxwell_wiechert,instance=1,material_id=3]
+    
+        subsection constitutive@[type=maxwell_element,instance=1]
+            set deviatoric viscosity = 3.050e-3 # default: 0
+            subsection constitutive@[type=modified_one_term_ogden,instance=1]
+              set alpha                 = -14.66 # default: -20
+              set poisson ratio         = 0.49
+              set empirical coefficient = -2.
+              set mu                    = 1400e-6  # default: 0.7e3
+            end
+        end
+        
+        subsection constitutive@[type=maxwell_element,instance=2]
+            set deviatoric viscosity = 289.37e-3 # default: 0
+            subsection constitutive@[type=modified_one_term_ogden,instance=1]
+              set alpha                 = -23.76 # default: -20
+              set poisson ratio         = 0.49
+              set empirical coefficient = -2.
+              set mu                    = 560e-6  # default: 0.7e3
+            end
+        end
+
+        subsection constitutive@[type=modified_one_term_ogden,instance=1]
+            set alpha = -21.27
+            set poisson ratio = 0.49
+            set empirical coefficient = -2.
+            set mu = 420e-6
+        end
+    end    
+ 
+    # Corpus Callosum (CC) 
+    subsection constitutive@[type=maxwell_wiechert,instance=1,material_id=251]
+    
+        subsection constitutive@[type=maxwell_element,instance=1]
+            set deviatoric viscosity = 1.62e-3 # default: 0
+            subsection constitutive@[type=modified_one_term_ogden,instance=1]
+              set alpha                 = -27.01 # default: -20
+              set poisson ratio         = 0.49
+              set empirical coefficient = -2.
+              set mu                    = 630e-6  # default: 0.7e3
+            end
+        end
+        
+        subsection constitutive@[type=maxwell_element,instance=2]
+            set deviatoric viscosity = 232.53e-3 # default: 0
+            subsection constitutive@[type=modified_one_term_ogden,instance=1]
+              set alpha                 = -30.8 # default: -20
+              set poisson ratio         = 0.49
+              set empirical coefficient = -2.
+              set mu                    = 160e-6  # default: 0.7e3
+            end
+        end
+
+        subsection constitutive@[type=modified_one_term_ogden,instance=1]
+            set alpha = -28.41
+            set poisson ratio = 0.49
+            set empirical coefficient = -2.
+            set mu = 40e-6
+        end
+    end     
+    
+    # White Matter (CR) 
+    subsection constitutive@[type=maxwell_wiechert,instance=1,material_id=2]
+    
+        subsection constitutive@[type=maxwell_element,instance=1]
+            set deviatoric viscosity = 2.19e-3 # default: 0
+            subsection constitutive@[type=modified_one_term_ogden,instance=1]
+              set alpha                 = -25.35 # default: -20
+              set poisson ratio         = 0.49
+              set empirical coefficient = -2.
+              set mu                    = 970e-6  # default: 0.7e3
+            end
+        end
+        
+        subsection constitutive@[type=maxwell_element,instance=2]
+            set deviatoric viscosity = 299.79e-3 # default: 0
+            subsection constitutive@[type=modified_one_term_ogden,instance=1]
+              set alpha                 = -29.22 # default: -20
+              set poisson ratio         = 0.49
+              set empirical coefficient = -2.
+              set mu                    = 250e-6  # default: 0.7e3
+            end
+        end
+
+        subsection constitutive@[type=modified_one_term_ogden,instance=1]
+            set alpha = -25.66
+            set poisson ratio = 0.49
+            set empirical coefficient = -2.
+            set mu = 160e-6
+        end
+    end     
+
+    subsection nonlinear_solver_control
+      set absolute tolerance = 1e-9
+      set linear solver type = CG
+      set maximum number of iterations = 10
+      set relative tolerance = 1e-08
+    end
+
+    subsection quadrature
+      set quadrature points per space direction = auto
+      set quadrature type = gauss
+    end
+
+    subsection contact
+      set apply contact = false
+    end
+  end
+
+end
+
+subsection global
+  set output directory = /data/iwtm69/build_retraction/out/Brain_incision_L12mm_W4mm_30mm_12p5mm_Loc1_4R_med
+
+  set input directory  = /calculate/iwtm69/build_retraction/Brain_incision_L12mm_W4mm_30mm_12p5mm_Loc1_4R_med
+  
+  set output filename = Brain_incision_L12mm_W4mm_30mm_12p5mm_Loc1_4R_med
+
+  set paraview output = true
+  
+  set move mesh = true
+
+  # options: quiet|normal|verbose|very verbose|debug
+  set verbosity console = debug
+
+  # options: quiet|normal|verbose|very verbose|debug
+  set verbosity logfile = normal
+end
