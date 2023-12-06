@@ -38,7 +38,7 @@ make release
 ## Runnig the executable
 The executable can be run form the terminal via
 <pre><code>
-mpirun -np 1 --bind-to socket efi_vlab 3 myparams.prm
+mpirun -np 1 --bind-to socket efi_vlab 3 ../Brain_incision_L12mm_W4mm_30mm_12p5mm_Loc1_4R_med/Brain_incision_L12mm_W4mm_30mm_12p5mm_Loc1_4R_med.prm
 </code></pre>
 where the number after <code>-np</code> specifies the number of processors, the argument after <code>--bind-to</code> specifies the binding pattern, <code>efi_vlab</code> is the application we want to run (short for emerging fields initiative virtual laboratory). The following two arguments specify the number of threads per process and the input paramter file, here <code>3</code> and <code>myparams</code>, respectively.
 
