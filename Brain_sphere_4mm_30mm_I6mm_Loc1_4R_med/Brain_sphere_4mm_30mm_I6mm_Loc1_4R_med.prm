@@ -165,9 +165,9 @@ subsection experiment
 end
 
 subsection global
-  set output directory = /data/iwtm69/build_retraction/out/Brain_sphere_4mm_30mm_I6mm_Loc1_4R_med
+  set output directory = ./out
 
-  set input directory  = /calculate/iwtm69/build_retraction/Brain_sphere_4mm_30mm_I6mm_Loc1_4R_med
+  set input directory  = 
   
   set output filename = Brain_sphere_4mm_30mm_I6mm_Loc1_4R_med
 
