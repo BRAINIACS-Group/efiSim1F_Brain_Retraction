@@ -164,9 +164,9 @@ subsection experiment
 end
 
 subsection global
-  set output directory = /data/iwtm69/build_retraction/out/Brain_incision_L12mm_W4mm_30mm_12p5mm_Loc1_4R_med
+  set output directory = ./out
 
-  set input directory  = /calculate/iwtm69/build_retraction/Brain_incision_L12mm_W4mm_30mm_12p5mm_Loc1_4R_med
+  set input directory  = 
   
   set output filename = Brain_incision_L12mm_W4mm_30mm_12p5mm_Loc1_4R_med
 
