@@ -4,6 +4,8 @@ This code is associated with the publication
 ### *A comparison of brain retraction mechanisms using finite element analysis and the effects of regionally heterogeneous material properties*
 by Emma Griffiths, Jayaratnam Jayamohan and Silvia Budday.
 
+The following code was run using dealii@9.3.1, boost@1.77.0 and openmpi@4.1.1.
+
 Three examplar input parameter files (.prm files) and their associated meshed human brain models (.inp files) used in the above study have been provided.
 
 ## Installation
@@ -12,10 +14,9 @@ The efi library requires deal.II 9.1.1 to be installed with trilinos enabled. It
 
 1. Make project directory, e.g. *myproject*.
 2. Enter the directory.
-3. Copy the src folder to the project directory.
-4. Create a build directory.
-5. Enter the build directory.
-6. Run cmake (out-of-source-build).
+3. Copy the src folder and simulation folders (i.e. Brain_incision_L12mm_W4mm_30mm_12p5mm_Loc1_4R_med) to the project directory.
+4. Enter the simulation directory.
+5. Run cmake (out-of-source-build).
 
 To do so, run the following comands in a terminal:
 <pre><code>
@@ -25,8 +26,8 @@ spack load openmpi@...
 mkdir myproject
 cd myproject
 cp -a /path/to/src .
-mkdir build
-cd /build 
+cp -r /path/to/simulation .
+cd /simulation 
 cmake ../src
 make debug
 </code></pre>
@@ -38,7 +39,7 @@ make release
 ## Runnig the executable
 The executable can be run form the terminal via
 <pre><code>
-mpirun -np 1 --bind-to socket efi_vlab 3 ../Brain_incision_L12mm_W4mm_30mm_12p5mm_Loc1_4R_med/Brain_incision_L12mm_W4mm_30mm_12p5mm_Loc1_4R_med.prm
+mpirun -np 1 --bind-to socket efi_vlab 3 Brain_incision_L12mm_W4mm_30mm_12p5mm_Loc1_4R_med/Brain_incision_L12mm_W4mm_30mm_12p5mm_Loc1_4R_med.prm
 </code></pre>
 where the number after <code>-np</code> specifies the number of processors, the argument after <code>--bind-to</code> specifies the binding pattern, <code>efi_vlab</code> is the application we want to run (short for emerging fields initiative virtual laboratory). The following two arguments specify the number of threads per process and the input paramter file, here <code>3</code> and <code>myparams</code>, respectively.
 
